@@ -28,32 +28,60 @@ public class FastdfsConfig {
     private String fastdfsTrackers;
     private String fastdfsUrlPrefix;
 
-    public String getFastdfsTrackers() {
-        return fastdfsTrackers;
-    }
-
     public int getFastdfsSoTimeout() {
         return fastdfsSoTimeout;
+    }
+
+    public void setFastdfsSoTimeout(int fastdfsSoTimeout) {
+        this.fastdfsSoTimeout = fastdfsSoTimeout;
     }
 
     public int getFastdfsConnectTimeout() {
         return fastdfsConnectTimeout;
     }
 
+    public void setFastdfsConnectTimeout(int fastdfsConnectTimeout) {
+        this.fastdfsConnectTimeout = fastdfsConnectTimeout;
+    }
+
     public int getFastdfsMaxTotal() {
         return fastdfsMaxTotal;
+    }
+
+    public void setFastdfsMaxTotal(int fastdfsMaxTotal) {
+        this.fastdfsMaxTotal = fastdfsMaxTotal;
     }
 
     public int getFastdfsMaxTotalPerKey() {
         return fastdfsMaxTotalPerKey;
     }
 
+    public void setFastdfsMaxTotalPerKey(int fastdfsMaxTotalPerKey) {
+        this.fastdfsMaxTotalPerKey = fastdfsMaxTotalPerKey;
+    }
+
     public int getFastdfsMaxIdlePerKey() {
         return fastdfsMaxIdlePerKey;
     }
 
+    public void setFastdfsMaxIdlePerKey(int fastdfsMaxIdlePerKey) {
+        this.fastdfsMaxIdlePerKey = fastdfsMaxIdlePerKey;
+    }
+
+    public String getFastdfsTrackers() {
+        return fastdfsTrackers;
+    }
+
+    public void setFastdfsTrackers(String fastdfsTrackers) {
+        this.fastdfsTrackers = fastdfsTrackers;
+    }
+
     public String getFastdfsUrlPrefix() {
         return fastdfsUrlPrefix;
+    }
+
+    public void setFastdfsUrlPrefix(String fastdfsUrlPrefix) {
+        this.fastdfsUrlPrefix = fastdfsUrlPrefix;
     }
 
     /**
