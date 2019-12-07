@@ -19,82 +19,82 @@ public class FastdfsConfig {
     public static final String FASTDFS_TRACKERS             = "fastdfs.trackers";
     public static final String FASTDFS_URL_PREFIX           = "fastdfs.urlPrefix";
 
-    private int fastdfsSoTimeout;
-    private int fastdfsConnectTimeout;
-    private int fastdfsMaxTotal;
-    private int fastdfsMaxTotalPerKey;
-    private int fastdfsMaxIdlePerKey;
+    private int soTimeout;
+    private int connectTimeout;
+    private int maxTotal;
+    private int maxTotalPerKey;
+    private int maxIdlePerKey;
 
-    private String fastdfsTrackers;
-    private String fastdfsUrlPrefix;
+    private String trackers;
+    private String urlPrefix;
 
-    public int getFastdfsSoTimeout() {
-        return fastdfsSoTimeout;
+    public int getSoTimeout() {
+        return soTimeout;
     }
 
-    public void setFastdfsSoTimeout(int fastdfsSoTimeout) {
-        this.fastdfsSoTimeout = fastdfsSoTimeout;
+    public void setSoTimeout(int soTimeout) {
+        this.soTimeout = soTimeout;
     }
 
-    public int getFastdfsConnectTimeout() {
-        return fastdfsConnectTimeout;
+    public int getConnectTimeout() {
+        return connectTimeout;
     }
 
-    public void setFastdfsConnectTimeout(int fastdfsConnectTimeout) {
-        this.fastdfsConnectTimeout = fastdfsConnectTimeout;
+    public void setConnectTimeout(int connectTimeout) {
+        this.connectTimeout = connectTimeout;
     }
 
-    public int getFastdfsMaxTotal() {
-        return fastdfsMaxTotal;
+    public int getMaxTotal() {
+        return maxTotal;
     }
 
-    public void setFastdfsMaxTotal(int fastdfsMaxTotal) {
-        this.fastdfsMaxTotal = fastdfsMaxTotal;
+    public void setMaxTotal(int maxTotal) {
+        this.maxTotal = maxTotal;
     }
 
-    public int getFastdfsMaxTotalPerKey() {
-        return fastdfsMaxTotalPerKey;
+    public int getMaxTotalPerKey() {
+        return maxTotalPerKey;
     }
 
-    public void setFastdfsMaxTotalPerKey(int fastdfsMaxTotalPerKey) {
-        this.fastdfsMaxTotalPerKey = fastdfsMaxTotalPerKey;
+    public void setMaxTotalPerKey(int maxTotalPerKey) {
+        this.maxTotalPerKey = maxTotalPerKey;
     }
 
-    public int getFastdfsMaxIdlePerKey() {
-        return fastdfsMaxIdlePerKey;
+    public int getMaxIdlePerKey() {
+        return maxIdlePerKey;
     }
 
-    public void setFastdfsMaxIdlePerKey(int fastdfsMaxIdlePerKey) {
-        this.fastdfsMaxIdlePerKey = fastdfsMaxIdlePerKey;
+    public void setMaxIdlePerKey(int maxIdlePerKey) {
+        this.maxIdlePerKey = maxIdlePerKey;
     }
 
-    public String getFastdfsTrackers() {
-        return fastdfsTrackers;
+    public String getTrackers() {
+        return trackers;
     }
 
-    public void setFastdfsTrackers(String fastdfsTrackers) {
-        this.fastdfsTrackers = fastdfsTrackers;
+    public void setTrackers(String trackers) {
+        this.trackers = trackers;
     }
 
-    public String getFastdfsUrlPrefix() {
-        return fastdfsUrlPrefix;
+    public String getUrlPrefix() {
+        return urlPrefix;
     }
 
-    public void setFastdfsUrlPrefix(String fastdfsUrlPrefix) {
-        this.fastdfsUrlPrefix = fastdfsUrlPrefix;
+    public void setUrlPrefix(String urlPrefix) {
+        this.urlPrefix = urlPrefix;
     }
 
     /**
      * 非 Spring 项目调用此方法初始化config和util
      */
     public static FastdfsConfig initFastdfsConfig(Properties properties){
-        config.fastdfsSoTimeout      = Integer.parseInt(properties.getProperty(FASTDFS_SO_TIMEOUT));
-        config.fastdfsConnectTimeout = Integer.parseInt(properties.getProperty(FASTDFS_CONNECT_TIMEOUT));
-        config.fastdfsMaxTotal       = Integer.parseInt(properties.getProperty(FASTDFS_MAX_TOTAL));
-        config.fastdfsMaxTotalPerKey = Integer.parseInt(properties.getProperty(FASTDFS_MAX_TOTAL_PER_KEY));
-        config.fastdfsMaxIdlePerKey  = Integer.parseInt(properties.getProperty(FASTDFS_MAX_IDLE_PER_KEY));
-        config.fastdfsTrackers       = properties.getProperty(FASTDFS_TRACKERS);
-        config.fastdfsUrlPrefix      = properties.getProperty(FASTDFS_URL_PREFIX);
+        config.soTimeout      = Integer.parseInt(properties.getProperty(FASTDFS_SO_TIMEOUT));
+        config.connectTimeout = Integer.parseInt(properties.getProperty(FASTDFS_CONNECT_TIMEOUT));
+        config.maxTotal       = Integer.parseInt(properties.getProperty(FASTDFS_MAX_TOTAL));
+        config.maxIdlePerKey  = Integer.parseInt(properties.getProperty(FASTDFS_MAX_TOTAL_PER_KEY));
+        config.maxIdlePerKey  = Integer.parseInt(properties.getProperty(FASTDFS_MAX_IDLE_PER_KEY));
+        config.trackers       = properties.getProperty(FASTDFS_TRACKERS);
+        config.urlPrefix      = properties.getProperty(FASTDFS_URL_PREFIX);
 
         //使FastdfsUtil可用
         FastdfsUtil.init(config);
