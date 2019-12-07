@@ -7,12 +7,14 @@
 
 1.2 配置文件
 ```properties
+#以下是非必选项
 fastdfs.connectTimeoutInSeconds=5
 fastdfs.networkTimeoutInSeconds=30
 fastdfs.charset=UTF-8
 fastdfs.httpAntiStealToken=false
 fastdfs.httpSecretKey=FastDFS1234567890
 fastdfs.httpTrackerHttpPort=80
+#以下是必选项
 #多个用逗号隔开
 fastdfs.trackers=ip:port
 #url访问前缀
@@ -30,11 +32,14 @@ fastdfs.urlPrefix=??
 2.1 下载jar包(fastdfs-java-client-1.0.0.RELEASE.jar)引入
 2.2 配置文件
 ```properties
+#以下是非必选项
 fastdfs.soTimeout=10000
 fastdfs.connectTimeout=5000
 fastdfs.maxTotal=200
 fastdfs.maxTotalPerKey=200
 fastdfs.maxIdlePerKey=50
+
+#以下是必选项
 #多个用逗号隔开
 fastdfs.trackers=ip:port
 #url访问前缀
