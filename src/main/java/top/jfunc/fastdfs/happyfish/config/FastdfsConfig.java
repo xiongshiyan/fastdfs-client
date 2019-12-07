@@ -20,12 +20,20 @@ public class FastdfsConfig {
     private static final String FASTDFS_TRACKERS                   = "fastdfs.trackers";
     private static final String FASTDFS_URL_PREFIX                 = "fastdfs.urlPrefix";
 
-    private int connectTimeoutInSeconds;
-    private int networkTimeoutInSeconds;
-    private String charset;
-    private boolean httpAntiStealToken;
-    private String httpSecretKey;
-    private int httpTrackerHttpPort;
+    private static final int DEFAULT_CONNECT_TIMEOUT_IN_SECONDS    = 5;
+    private static final int DEFAULT_NETWORK_TIMEOUT_IN_SECONDS    = 30;
+    private static final String DEFAULT_CHARSET                    = "UTF-8";
+    private static final boolean DEFAULT_HTTP_ANTI_STEAL_TOKEN     = false;
+    private static final String DEFAULT_HTTP_SECRET_KEY            = "FastDFS1234567890";
+    private static final int DEFAULT_HTTP_TRACKER_HTTP_PORT        = 80;
+
+    private int connectTimeoutInSeconds = DEFAULT_CONNECT_TIMEOUT_IN_SECONDS;
+    private int networkTimeoutInSeconds = DEFAULT_NETWORK_TIMEOUT_IN_SECONDS;
+    private String charset = DEFAULT_CHARSET;
+    private boolean httpAntiStealToken = DEFAULT_HTTP_ANTI_STEAL_TOKEN;
+    private String httpSecretKey = DEFAULT_HTTP_SECRET_KEY;
+    private int httpTrackerHttpPort = DEFAULT_HTTP_TRACKER_HTTP_PORT;
+
     private String trackers;
     private String urlPrefix;
 
@@ -98,12 +106,24 @@ public class FastdfsConfig {
      * 非 Spring 项目调用此方法初始化config和util
      */
     public static FastdfsConfig initFastdfsConfig(Properties properties) throws Exception{
-        config.connectTimeoutInSeconds       = Integer.parseInt(properties.getProperty(FASTDFS_CONNECT_TIMEOUT_IN_SECONDS));
-        config.networkTimeoutInSeconds       = Integer.parseInt(properties.getProperty(FASTDFS_NETWORK_TIMEOUT_IN_SECONDS));
-        config.charset                       = properties.getProperty(FASTDFS_CHARSET);
-        config.httpAntiStealToken            = Boolean.parseBoolean(properties.getProperty(FASTDFS_HTTP_ANTI_STEAL_TOKEN));
-        config.httpSecretKey                 = properties.getProperty(FASTDFS_HTTP_SECRET_KEY);
-        config.httpTrackerHttpPort           = Integer.parseInt(properties.getProperty(FASTDFS_HTTP_TRACKER_HTTP_PORT));
+        if(properties.containsKey(FASTDFS_CONNECT_TIMEOUT_IN_SECONDS)){
+            config.connectTimeoutInSeconds = Integer.parseInt(properties.getProperty(FASTDFS_CONNECT_TIMEOUT_IN_SECONDS));
+        }
+        if(properties.containsKey(FASTDFS_NETWORK_TIMEOUT_IN_SECONDS)){
+            config.networkTimeoutInSeconds = Integer.parseInt(properties.getProperty(FASTDFS_NETWORK_TIMEOUT_IN_SECONDS));
+        }
+        if(properties.containsKey(FASTDFS_CHARSET)){
+            config.charset = properties.getProperty(FASTDFS_CHARSET);
+        }
+        if(properties.containsKey(FASTDFS_HTTP_ANTI_STEAL_TOKEN)){
+            config.httpAntiStealToken = Boolean.parseBoolean(properties.getProperty(FASTDFS_HTTP_ANTI_STEAL_TOKEN));
+        }
+        if(properties.containsKey(FASTDFS_HTTP_SECRET_KEY)){
+            config.httpSecretKey = properties.getProperty(FASTDFS_HTTP_SECRET_KEY);
+        }
+        if(properties.containsKey(FASTDFS_HTTP_TRACKER_HTTP_PORT)){
+            config.httpTrackerHttpPort = Integer.parseInt(properties.getProperty(FASTDFS_HTTP_TRACKER_HTTP_PORT));
+        }
         config.trackers                      = properties.getProperty(FASTDFS_TRACKERS);
         config.urlPrefix                     = properties.getProperty(FASTDFS_URL_PREFIX);
 
