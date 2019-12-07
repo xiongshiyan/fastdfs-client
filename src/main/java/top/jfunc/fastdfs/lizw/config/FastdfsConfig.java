@@ -91,7 +91,7 @@ public class FastdfsConfig {
         config.soTimeout      = Integer.parseInt(properties.getProperty(FASTDFS_SO_TIMEOUT));
         config.connectTimeout = Integer.parseInt(properties.getProperty(FASTDFS_CONNECT_TIMEOUT));
         config.maxTotal       = Integer.parseInt(properties.getProperty(FASTDFS_MAX_TOTAL));
-        config.maxIdlePerKey  = Integer.parseInt(properties.getProperty(FASTDFS_MAX_TOTAL_PER_KEY));
+        config.maxTotalPerKey  = Integer.parseInt(properties.getProperty(FASTDFS_MAX_TOTAL_PER_KEY));
         config.maxIdlePerKey  = Integer.parseInt(properties.getProperty(FASTDFS_MAX_IDLE_PER_KEY));
         config.trackers       = properties.getProperty(FASTDFS_TRACKERS);
         config.urlPrefix      = properties.getProperty(FASTDFS_URL_PREFIX);
