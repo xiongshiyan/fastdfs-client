@@ -28,17 +28,17 @@ public class FastdfsClientConfig {
 
     @Bean(name = "fastdfsConnectionPool" , destroyMethod = "close")
     public ConnectionPool fastdfsConnectionPool(){
-        PooledConnectionFactory pooledConnectionFactory = new PooledConnectionFactory(fastdfsConfig.getFastdfsSoTimeout() , fastdfsConfig.getFastdfsConnectTimeout());
+        PooledConnectionFactory pooledConnectionFactory = new PooledConnectionFactory(fastdfsConfig.getSoTimeout() , fastdfsConfig.getConnectTimeout());
         GenericKeyedObjectPoolConfig genericKeyedObjectPoolConfig = new GenericKeyedObjectPoolConfig();
-        genericKeyedObjectPoolConfig.setMaxTotal(fastdfsConfig.getFastdfsMaxTotal());
-        genericKeyedObjectPoolConfig.setMaxTotalPerKey(fastdfsConfig.getFastdfsMaxTotalPerKey());
-        genericKeyedObjectPoolConfig.setMaxIdlePerKey(fastdfsConfig.getFastdfsMaxIdlePerKey());
+        genericKeyedObjectPoolConfig.setMaxTotal(fastdfsConfig.getMaxTotal());
+        genericKeyedObjectPoolConfig.setMaxTotalPerKey(fastdfsConfig.getMaxTotalPerKey());
+        genericKeyedObjectPoolConfig.setMaxIdlePerKey(fastdfsConfig.getMaxIdlePerKey());
         return new ConnectionPool(pooledConnectionFactory, genericKeyedObjectPoolConfig);
     }
 
     @Bean
     public CommandExecutor commandExecutor(ConnectionPool connectionPool){
-        return new DefaultCommandExecutor(fastdfsConfig.getFastdfsTrackers() , connectionPool);
+        return new DefaultCommandExecutor(fastdfsConfig.getTrackers() , connectionPool);
     }
 
     @Bean

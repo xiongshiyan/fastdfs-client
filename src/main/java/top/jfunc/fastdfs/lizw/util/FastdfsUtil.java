@@ -41,14 +41,14 @@ public class FastdfsUtil {
      * 需要在程序启动的时候调用此方法初始化
      */
     public static void init(FastdfsConfig fastdfsConfig){
-        PooledConnectionFactory pooledConnectionFactory = new PooledConnectionFactory(fastdfsConfig.getFastdfsSoTimeout(),fastdfsConfig.getFastdfsConnectTimeout());
+        PooledConnectionFactory pooledConnectionFactory = new PooledConnectionFactory(fastdfsConfig.getSoTimeout(),fastdfsConfig.getConnectTimeout());
         GenericKeyedObjectPoolConfig conf = new GenericKeyedObjectPoolConfig();
-        conf.setMaxTotal(fastdfsConfig.getFastdfsMaxTotal());
-        conf.setMaxTotalPerKey(fastdfsConfig.getFastdfsMaxTotalPerKey());
-        conf.setMaxIdlePerKey(fastdfsConfig.getFastdfsMaxIdlePerKey());
+        conf.setMaxTotal(fastdfsConfig.getMaxTotal());
+        conf.setMaxTotalPerKey(fastdfsConfig.getMaxTotalPerKey());
+        conf.setMaxIdlePerKey(fastdfsConfig.getMaxIdlePerKey());
         connectionPool = new ConnectionPool(pooledConnectionFactory, conf);
 
-        String[] split = fastdfsConfig.getFastdfsTrackers().split(",");
+        String[] split = fastdfsConfig.getTrackers().split(",");
         Set<String> trackerSet = new HashSet<>(split.length);
         trackerSet.addAll(Arrays.asList(split));
         DefaultCommandExecutor commandExecutor = new DefaultCommandExecutor(trackerSet, connectionPool);
